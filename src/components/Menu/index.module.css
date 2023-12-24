@@ -3,6 +3,10 @@
 
     .iconWrapper {
         @apply cursor-pointer flex justify-center items-center h-10 w-10 rounded-md hover:bg-[#E3E2FE];
+
+        &.active{
+            background-color: #E3E2FE;
+        }
         
     }
 }

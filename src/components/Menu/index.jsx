@@ -1,4 +1,3 @@
-"use server";
 import {
   FaPencilAlt,
   FaEraser,
@@ -7,29 +6,41 @@ import {
   FaFileDownload,
 } from "react-icons/fa";
 import styles from "./index.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { menuItemClick } from "@/slice/menuSlice";
+import cx from "classnames";
 const Menu = () => {
   const dispatch = useDispatch();
-
-  const handleItemClick = (itemName) => {
+  const activeMenuItem = useSelector((state) => state.menu.activeMenuItem);
+  const handleMenuItem = (itemName) => {
     dispatch(menuItemClick(itemName));
   };
+
   return (
     <div className={styles.menuContainer}>
-      <div className={styles.iconWrapper} onClick={handleItemClick("Pencil")}>
+      <div
+        className={cx(styles.iconWrapper, {
+          [styles.active]: activeMenuItem === "Pencil",
+        })}
+        onClick={() => handleMenuItem("Pencil")}
+      >
         <FaPencilAlt className={styles.icon} />
       </div>
-      <div className={styles.iconWrapper} onClick={handleItemClick("Eraser")}>
+      <div
+        className={cx(styles.iconWrapper, {
+          [styles.active]: activeMenuItem === "Eraser",
+        })}
+        onClick={() => handleMenuItem("Eraser")}
+      >
         <FaEraser className={styles.icon} />
       </div>
-      <div className={styles.iconWrapper} onClick={handleItemClick("Undo")}>
+      <div className={styles.iconWrapper}>
         <FaUndoAlt className={styles.icon} />
       </div>
-      <div className={styles.iconWrapper} onClick={handleItemClick("Redo")}>
+      <div className={styles.iconWrapper}>
         <FaRedoAlt className={styles.icon} />
       </div>
-      <div className={styles.iconWrapper} onClick={handleItemClick("Download")}>
+      <div className={styles.iconWrapper}>
         <FaFileDownload className={styles.icon} />
       </div>
     </div>
