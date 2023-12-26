@@ -13,6 +13,9 @@
 
             .colorBox{
                 @apply h-5 w-5 mr-1 rounded-sm cursor-pointer hover:border-[2px] border-blue-800;
+                &.active{
+                    border: 1.5px solid blue;
+                }
             }
         }
     }

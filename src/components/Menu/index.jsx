@@ -7,8 +7,9 @@ import {
 } from "react-icons/fa";
 import styles from "./index.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { menuItemClick } from "@/slice/menuSlice";
+import { menuItemClick, actionItemClick } from "@/slice/menuSlice";
 import cx from "classnames";
+import { MENU_ITEMS } from "@/constants";
 const Menu = () => {
   const dispatch = useDispatch();
   const activeMenuItem = useSelector((state) => state.menu.activeMenuItem);
@@ -16,32 +17,45 @@ const Menu = () => {
     dispatch(menuItemClick(itemName));
   };
 
+  const handleActionItemClick = (itemName) => {
+    dispatch(actionItemClick(itemName));
+  };
+
   return (
     <div className={styles.menuContainer}>
       <div
         className={cx(styles.iconWrapper, {
-          [styles.active]: activeMenuItem === "Pencil",
+          [styles.active]: activeMenuItem === MENU_ITEMS.PENCIL,
         })}
-        onClick={() => handleMenuItem("Pencil")}
+        onClick={() => handleMenuItem(MENU_ITEMS.PENCIL)}
       >
         <FaPencilAlt className={styles.icon} />
       </div>
       <div
         className={cx(styles.iconWrapper, {
-          [styles.active]: activeMenuItem === "Eraser",
+          [styles.active]: activeMenuItem === MENU_ITEMS.ERASER,
         })}
-        onClick={() => handleMenuItem("Eraser")}
+        onClick={() => handleMenuItem(MENU_ITEMS.ERASER)}
       >
         <FaEraser className={styles.icon} />
       </div>
-      <div className={styles.iconWrapper}>
+      <div
+        className={styles.iconWrapper}
+        onClick={() => handleActionItemClick(MENU_ITEMS.UNDO)}
+      >
         <FaUndoAlt className={styles.icon} />
       </div>
       <div className={styles.iconWrapper}>
-        <FaRedoAlt className={styles.icon} />
+        <FaRedoAlt
+          className={styles.icon}
+          onClick={() => handleActionItemClick(MENU_ITEMS.REDO)}
+        />
       </div>
       <div className={styles.iconWrapper}>
-        <FaFileDownload className={styles.icon} />
+        <FaFileDownload
+          className={styles.icon}
+          onClick={() => handleActionItemClick(MENU_ITEMS.DOWNLOAD)}
+        />
       </div>
     </div>
   );
