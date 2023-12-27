@@ -3,9 +3,11 @@ import styles from "./index.module.css";
 import { changeColor, changeBrushSize } from "@/slice/toolBoxSlice";
 import cx from "classnames";
 import { MENU_ITEMS } from "@/constants";
+import { socket } from "@/socket";
+
 const ToolBox = () => {
   const activeMenuItem = useSelector((state) => state.menu.activeMenuItem);
-  const { color } = useSelector((state) => state.toolbox[activeMenuItem]);
+  const { color, size } = useSelector((state) => state.toolbox[activeMenuItem]);
   const showStrokeToolOption = activeMenuItem === MENU_ITEMS.PENCIL;
   const showBrushToolOption =
     activeMenuItem === MENU_ITEMS.PENCIL ||
@@ -14,9 +16,11 @@ const ToolBox = () => {
   const dispatch = useDispatch();
   const updateBrushSize = (e) => {
     dispatch(changeBrushSize({ item: activeMenuItem, size: e.target.value }));
+    socket.emit("changeConfig", { color, size: e.target.value });
   };
   const updateColor = (newColor) => {
     dispatch(changeColor({ item: activeMenuItem, color: newColor }));
+    socket.emit("changeConfig", { color: newColor, size });
   };
   return (
     <div className={styles.toolboxContainer}>
