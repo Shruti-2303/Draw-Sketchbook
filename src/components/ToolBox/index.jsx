@@ -68,7 +68,7 @@ const ToolBox = () => {
       )}
       {showBrushToolOption && (
         <div className={styles.toolItem}>
-          <div className={styles.toolText}>Brush Stroke {activeMenuItem}</div>
+          <div className={styles.toolText}>Brush Stroke</div>
           <div className={styles.itemContainer}>
             <input
               type="range"
