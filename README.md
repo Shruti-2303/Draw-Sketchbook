@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SketchSync 🖌️🎨
 
-## Getting Started
+Welcome to SketchSync, your real-time whiteboarding tool designed to streamline collaboration and creativity. With SketchSync, you can bring your ideas to life seamlessly, whether you're brainstorming, planning, or illustrating concepts. Powered by cutting-edge technologies, SketchSync offers an intuitive interface and dynamic features to enhance your collaborative experience.
 
-First, run the development server:
+### 🔗[Link to SketchSync Backend]([https://www.google.com](https://github.com/Shruti-2303/Sketch-Sync-backend))🔗
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack ⚛️
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Next.js**: A powerful React framework for building server-rendered applications.
+- **Tailwind CSS**: A utility-first CSS framework for rapid and efficient styling.
+- **Express.js**: A minimal and flexible Node.js web application framework.
+- **Websockets**: Real-time communication protocol enabling interactive and synchronized collaboration.
+- **Canvas APIs**: HTML5 canvas element for drawing and rendering graphics.
+- **Redux Toolkit**: Simplified state management for maintaining application state.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Main Components 💻
 
-## Learn More
+### Board
 
-To learn more about Next.js, take a look at the following resources:
+The central canvas area where users can draw, sketch, and collaborate in real-time. Supports a variety of drawing tools and functionalities for enhanced creativity.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Toolbox
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+A collection of tools and options for users to customize their drawing experience. Includes features such as color selection, brush size adjustment, eraser tool, and more.
 
-## Deploy on Vercel
+## Features 🌟
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Real-time Collaboration**: Collaborate seamlessly with team members in real-time, regardless of location.
+- **Dynamic Drawing Tools**: Choose from a variety of drawing tools, colors and options to create intricate sketches and illustrations.
+- **Persistent Boards**: Save and access your boards effortlessly.
